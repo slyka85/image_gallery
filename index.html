@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Razor Fish Gallery</title>
+   <link rel="stylesheet" href="styles/stylesheet.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/fancybox_sprite@2x.png">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/helpers/jquery.fancybox-thumbs.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.1/mustache.js"></script>
+   <script>
+    $(document).ready(function() {
+
+ ///////////////////////////////// GETTING DATA FROM JSON FILE ////////////////////////////////////
+         $.getJSON('gallery_json.json', function(data) {
+            var template = $('#imagesTemplate').html();
+            var html = Mustache.to_html(template, data);
+
+/////////////////////// APPENDING THUMBNAILS TO THE FOOTER OF THE PAGE/////////////////////////////
+            $('footer').html(html);
+            $(".fancybox").fancybox({
+               helpers: {
+                  title: {
+                     type: 'outside'
+                  }
+               }
+//////////////////////// TRIGGERING THE FIRST IMAGE TO SHOW ON THE SCREEN ////////////////////////
+            }).eq(0).trigger("click"); //triggers to display the first image in window load
+         });
+      }); //end of document ready
+   </script>
+</head>
+
+<body>
+ /////////////////////// USING MUSTACHE.js FOR ITERATING AND TEMPLATING //////////////////////////
+   <script type="text/template" id="imagesTemplate">
+      {{#album}}
+      <header class="text-center">
+         <h1> {{name}} </h1>
+      </header>
+      {{/album}} {{#photos}}
+      <a class="fancybox" class="single_image" rel="gallery" title="{{title}}. <br><br> Taken on {{date}} at {{location}}." href="{{url}}"><span class="rollover" ></span><img data-id="{{id}}" class="centered thumb text-center" src="{{thumb_url}}"> </a> {{/photos}}
+   </script>
+
+   <footer class="text-center"></footer>
+
+</body>
+
+</html>

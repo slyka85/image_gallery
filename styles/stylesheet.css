@@ -1,0 +1,94 @@
+@font-face {
+    font-family: Neo Sans Intel;
+    src: url(/styles/font/NeoSansIntel.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Neo Sans Intel;
+}
+body {
+    background: url(/test_images/image_2.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+header {
+    height: 80px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    -webkit-box-shadow: 0px 10px 5px -4px rgba(117, 110, 117, 0.68);
+    -moz-box-shadow: 0px 10px 5px -4px rgba(117, 110, 117, 0.68);
+    box-shadow: 0px 10px 5px -4px rgba(117, 110, 117, 0.68);
+    background: rgb(41, 106, 204);
+    color: yellow;
+}
+header h1 {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    text-align: center;
+}
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+}
+.thumb {
+    display: inline;
+}
+footer {
+    bottom: 0;
+    height: 120px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    padding: 25px;
+    background: rgb(41, 106, 204);
+    -webkit-box-shadow: 0px -8px 5px 0px rgba(128,120,128,0.66);
+    -moz-box-shadow: 0px -8px 5px 0px rgba(128,120,128,0.66);
+    box-shadow: 0px -8px 5px 0px rgba(128,120,128,0.66);
+}
+.fancybox-nav span {
+    visibility: visible;
+}
+.fancybox-title {
+    color: yellow!important;
+    font-size: 24px!important;
+    text-align: center;
+    font-family: Neo Sans Intel!important;
+}
+.fancybox-skin {
+    padding: 2px!important;
+}
+.fancybox-title-inside-wrap {
+    padding-top: 2px!important;
+}
+.fancybox-overlay-fixed {
+    right: -20px!important;
+}
+span.rollover {
+    opacity: 1;
+    -o-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -webkit-transition: -webkit-transform 1s;
+    background: url(https://cdn2.iconfinder.com/data/icons/circel-ui/235/21-48.png) center center no-repeat #000;
+    cursor: pointer;
+    height: 65px;
+    width: 102px;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+}
+span.rollover:hover {
+    opacity: .7;
+    -o-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -webkit-transition: -webkit-transform 1s;
+    -webkit-box-shadow: 0px 0px 4px #000;
+    -moz-box-shadow: 0px 0px 4px #000;
+    box-shadow: 0px 0px 4px #000;
+}

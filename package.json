@@ -1,0 +1,11 @@
+{
+  "name": "razor_fish_gallery",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": "^4.12.4",
+    "mustache": "^2.1.2"
+  },
+  "devDependencies": {
+    "fancybox": "^3.0.0"
+  }
+}
